@@ -1,0 +1,3 @@
+{"errors":[{"component":"general","formattedMessage":"InternalCompilerError: Solidity assertion failed
+
+","message":"Internal compiler error (/solidity/libevmasm/AssemblyItem.cpp:90):Solidity assertion failed","severity":"error","type":"InternalCompilerError"}],"sources":{"a.sol":{"id":0}}}
