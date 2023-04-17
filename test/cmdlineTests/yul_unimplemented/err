@@ -1,0 +1,5 @@
+Error (1834): Unimplemented feature error: Byte Arrays not yet implemented! in FILENAME REMOVED
+ --> yul_unimplemented/input.sol:6:9:
+  |
+6 |         delete a;
+  |         ^^^^^^^^
