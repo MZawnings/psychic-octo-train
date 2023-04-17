@@ -1,0 +1,15 @@
+interface A {
+	function test() external returns (uint256);
+	function test2() external returns (uint256);
+}
+
+interface B {
+	function test() external returns (uint256);
+	function test2() external returns (uint256);
+}
+contract X is A, B {
+	function test() external override(A, B) returns (uint256) {}
+	function test2() external override(B, A) returns (uint256) {}
+}
+// ----
+// Warning: (325-339): Override specifier list order differs from inheritance order.
