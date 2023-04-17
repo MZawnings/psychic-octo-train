@@ -1,0 +1,18 @@
+{
+	"language": "Solidity",
+	"sources": {
+		"a.sol": {"urls": ["standard_generatedSources/in.sol"]}
+	},
+	"settings": {
+		"evmVersion": "petersburg",
+		"outputSelection": {
+			"*": {
+				"A": [
+					"evm.bytecode.object",
+					"evm.deployedBytecode.generatedSources",
+					"evm.bytecode.generatedSources"
+				]
+			}
+		}
+	}
+}
