@@ -1,0 +1,97 @@
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "C_2" {
+    code {
+        {
+            mstore(64, memoryguard(0x80))
+            if callvalue() { revert(0, 0) }
+            let _1 := datasize("C_2_deployed")
+            codecopy(0, dataoffset("C_2_deployed"), _1)
+            return(0, _1)
+        }
+    }
+    object "C_2_deployed" {
+        code {
+            {
+                mstore(64, memoryguard(0x80))
+                revert(0, 0)
+            }
+        }
+    }
+}
+
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "D_13" {
+    code {
+        {
+            mstore(64, memoryguard(0x80))
+            if callvalue() { revert(0, 0) }
+            let _1 := datasize("D_13_deployed")
+            codecopy(0, dataoffset("D_13_deployed"), _1)
+            return(0, _1)
+        }
+    }
+    object "D_13_deployed" {
+        code {
+            {
+                let _1 := memoryguard(0x80)
+                mstore(64, _1)
+                if iszero(lt(calldatasize(), 4))
+                {
+                    let _2 := 0
+                    if eq(0x26121ff0, shr(224, calldataload(_2)))
+                    {
+                        if callvalue() { revert(_2, _2) }
+                        if slt(add(calldatasize(), not(3)), _2) { revert(_2, _2) }
+                        let _3 := datasize("C_2")
+                        let _4 := add(_1, _3)
+                        if or(gt(_4, 0xffffffffffffffff), lt(_4, _1)) { invalid() }
+                        datacopy(_1, dataoffset("C_2"), _3)
+                        pop(create(_2, _1, sub(_4, _1)))
+                        return(allocateMemory(_2), _2)
+                    }
+                }
+                revert(0, 0)
+            }
+            function allocateMemory(size) -> memPtr
+            {
+                memPtr := mload(64)
+                let newFreePtr := add(memPtr, size)
+                if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { invalid() }
+                mstore(64, newFreePtr)
+            }
+        }
+        object "C_2" {
+            code {
+                {
+                    mstore(64, memoryguard(0x80))
+                    if callvalue() { revert(0, 0) }
+                    let _1 := datasize("C_2_deployed")
+                    codecopy(0, dataoffset("C_2_deployed"), _1)
+                    return(0, _1)
+                }
+            }
+            object "C_2_deployed" {
+                code {
+                    {
+                        mstore(64, memoryguard(0x80))
+                        revert(0, 0)
+                    }
+                }
+            }
+        }
+    }
+}
