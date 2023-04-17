@@ -1,0 +1,49 @@
+/*
+	This file is part of solidity.
+
+	solidity is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	solidity is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with solidity.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+syntax = "proto2";
+
+import "yulProto.proto";
+
+message Type {
+    enum Sign {
+        SIGNED = 0;
+        UNSIGNED = 1;
+    }
+    required Sign s = 1;
+    required uint32 bytewidth = 2;
+}
+
+message VarDecl {
+    required Type t = 1;
+}
+
+message Assembly {
+    required solidity.yul.test.yul_fuzzer.Program p = 1;
+}
+
+message Block {
+    repeated VarDecl v = 1;
+    required Assembly a = 2;
+}
+
+message Program {
+    required Block b = 1;
+    required uint64 seed = 2;
+}
+
+package solidity.test.solarithfuzzer;
