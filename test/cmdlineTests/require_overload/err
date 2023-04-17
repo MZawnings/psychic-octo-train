@@ -1,0 +1,5 @@
+Error: Invalid type for argument in function call. Invalid implicit conversion from contract C to bool requested.
+ --> require_overload/input.sol:5:17:
+  |
+5 |         require(this);
+  |                 ^^^^
