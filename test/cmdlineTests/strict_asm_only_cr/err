@@ -1,0 +1,5 @@
+ParserError: Expected keyword "object".
+ --> strict_asm_only_cr/input.yul:1:2:
+  |
+1 | 
+  | ^
