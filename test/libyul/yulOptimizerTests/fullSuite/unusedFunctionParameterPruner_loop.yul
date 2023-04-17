@@ -1,0 +1,39 @@
+{
+    sstore(f(1), 1)
+    sstore(f(2), 1)
+    sstore(f(3), 1)
+    function f(a) -> x {
+        for {let b := 10} iszero(b) { b := sub(b, 1) }
+        {
+            a := calldataload(0)
+            mstore(a, x)
+            // to prevent f from getting inlined
+            if iszero(a) { leave }
+        }
+    }
+}
+// ----
+// step: fullSuite
+//
+// {
+//     {
+//         f()
+//         sstore(returndatasize(), 1)
+//         f()
+//         sstore(returndatasize(), 1)
+//         f()
+//         sstore(returndatasize(), 1)
+//     }
+//     function f()
+//     {
+//         let b := 10
+//         let _1 := returndatasize()
+//         let a := calldataload(returndatasize())
+//         let _2 := iszero(a)
+//         for { } iszero(b) { b := add(b, not(0)) }
+//         {
+//             mstore(a, _1)
+//             if _2 { leave }
+//         }
+//     }
+// }

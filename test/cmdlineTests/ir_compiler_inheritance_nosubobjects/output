@@ -1,0 +1,61 @@
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "C_7" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue()
+            {
+                revert(returndatasize(), returndatasize())
+            }
+            let _1 := datasize("C_7_deployed")
+            codecopy(returndatasize(), dataoffset("C_7_deployed"), _1)
+            return(returndatasize(), _1)
+        }
+    }
+    object "C_7_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                revert(returndatasize(), returndatasize())
+            }
+        }
+    }
+}
+
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "D_10" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue()
+            {
+                revert(returndatasize(), returndatasize())
+            }
+            let _1 := datasize("D_10_deployed")
+            codecopy(returndatasize(), dataoffset("D_10_deployed"), _1)
+            return(returndatasize(), _1)
+        }
+    }
+    object "D_10_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                revert(returndatasize(), returndatasize())
+            }
+        }
+    }
+}

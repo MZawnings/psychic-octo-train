@@ -1,0 +1,36 @@
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "C_12" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue()
+            {
+                revert(returndatasize(), returndatasize())
+            }
+            sstore(returndatasize(), shl(180, 1))
+            let _1 := datasize("C_12_deployed")
+            codecopy(returndatasize(), dataoffset("C_12_deployed"), _1)
+            return(returndatasize(), _1)
+        }
+    }
+    object "C_12_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                if callvalue()
+                {
+                    revert(returndatasize(), returndatasize())
+                }
+                sstore(returndatasize(), 0x1000000000000000000000000000000000000000000000)
+                stop()
+            }
+        }
+    }
+}

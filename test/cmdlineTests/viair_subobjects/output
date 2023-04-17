@@ -1,0 +1,126 @@
+
+======= viair_subobjects/input.sol:C =======
+Binary:
+60806040523415600d573d3dfd5b600880601a3d39803df350fe60806040523d3dfd
+Binary of the runtime part:
+60806040523d3dfd
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "C_3" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue()
+            {
+                revert(returndatasize(), returndatasize())
+            }
+            let _1 := datasize("C_3_deployed")
+            codecopy(returndatasize(), dataoffset("C_3_deployed"), _1)
+            return(returndatasize(), _1)
+        }
+    }
+    object "C_3_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                revert(returndatasize(), returndatasize())
+            }
+        }
+    }
+}
+
+
+======= viair_subobjects/input.sol:D =======
+Binary:
+6080604052341561000e573d3dfd5b60f48061001c3d39803df350fe6080604052600436101515610086573d803560e01c6326121ff01415610084573415610029578081fd5b8060031936011215610039578081fd5b6022806080016080811067ffffffffffffffff8211171561005d5761005c6100b8565b5b50806100d260803980608083f01515610078573d82833e3d82fd5b5080610082610090565bf35b505b60006000fd6100d0565b6000604051905067ffffffffffffffff8111156100b0576100af6100b8565b5b806040525b90565b634e487b7160e01b600052604160045260246000fd5b565bfe60806040523415600d573d3dfd5b600880601a3d39803df350fe60806040523d3dfd
+Binary of the runtime part:
+6080604052600436101515610086573d803560e01c6326121ff01415610084573415610029578081fd5b8060031936011215610039578081fd5b6022806080016080811067ffffffffffffffff8211171561005d5761005c6100b8565b5b50806100d260803980608083f01515610078573d82833e3d82fd5b5080610082610090565bf35b505b60006000fd6100d0565b6000604051905067ffffffffffffffff8111156100b0576100af6100b8565b5b806040525b90565b634e487b7160e01b600052604160045260246000fd5b565bfe60806040523415600d573d3dfd5b600880601a3d39803df350fe60806040523d3dfd
+Optimized IR:
+/*******************************************************
+ *                       WARNING                       *
+ *  Solidity to Yul compilation is still EXPERIMENTAL  *
+ *       It can result in LOSS OF FUNDS or worse       *
+ *                !USE AT YOUR OWN RISK!               *
+ *******************************************************/
+
+object "D_16" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue()
+            {
+                revert(returndatasize(), returndatasize())
+            }
+            let _1 := datasize("D_16_deployed")
+            codecopy(returndatasize(), dataoffset("D_16_deployed"), _1)
+            return(returndatasize(), _1)
+        }
+    }
+    object "D_16_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                if iszero(lt(calldatasize(), 4))
+                {
+                    let _1 := returndatasize()
+                    if eq(0x26121ff0, shr(224, calldataload(_1)))
+                    {
+                        if callvalue() { revert(_1, _1) }
+                        if slt(add(calldatasize(), not(3)), _1) { revert(_1, _1) }
+                        let _2 := datasize("C_3")
+                        let _3 := add(128, _2)
+                        if or(gt(_3, 0xffffffffffffffff), lt(_3, 128)) { panic_error_0x41() }
+                        datacopy(128, dataoffset("C_3"), _2)
+                        if iszero(create(_1, 128, _2))
+                        {
+                            returndatacopy(_1, _1, returndatasize())
+                            revert(_1, returndatasize())
+                        }
+                        return(allocate_memory(), _1)
+                    }
+                }
+                revert(0, 0)
+            }
+            function allocate_memory() -> memPtr
+            {
+                memPtr := mload(64)
+                if gt(memPtr, 0xffffffffffffffff) { panic_error_0x41() }
+                mstore(64, memPtr)
+            }
+            function panic_error_0x41()
+            {
+                mstore(0, shl(224, 0x4e487b71))
+                mstore(4, 0x41)
+                revert(0, 0x24)
+            }
+        }
+        object "C_3" {
+            code {
+                {
+                    mstore(64, 128)
+                    if callvalue()
+                    {
+                        revert(returndatasize(), returndatasize())
+                    }
+                    let _1 := datasize("C_3_deployed")
+                    codecopy(returndatasize(), dataoffset("C_3_deployed"), _1)
+                    return(returndatasize(), _1)
+                }
+            }
+            object "C_3_deployed" {
+                code {
+                    {
+                        mstore(64, 128)
+                        revert(returndatasize(), returndatasize())
+                    }
+                }
+            }
+        }
+    }
+}
