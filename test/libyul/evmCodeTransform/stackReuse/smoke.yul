@@ -1,0 +1,5 @@
+{}
+// ====
+// stackOptimization: true
+// ----
+//   stop
