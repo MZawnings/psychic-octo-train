@@ -1,0 +1,24 @@
+
+======= strict_asm_optimizer_steps/input.yul (EVM) =======
+
+Pretty printed source:
+object "C_6" {
+    code {
+        {
+            mstore(64, 128)
+            if callvalue() { revert(0, 0) }
+            codecopy(0, dataoffset("C_6_deployed"), datasize("C_6_deployed"))
+            return(0, datasize("C_6_deployed"))
+        }
+    }
+    object "C_6_deployed" {
+        code {
+            {
+                mstore(64, 128)
+                pop(iszero(lt(calldatasize(), 4)))
+                sstore(0, iszero(calldatasize()))
+                revert(0, 0)
+            }
+        }
+    }
+}
