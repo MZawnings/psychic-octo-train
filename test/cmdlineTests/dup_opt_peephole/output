@@ -1,0 +1,89 @@
+
+======= dup_opt_peephole/input.sol:C =======
+EVM assembly:
+    /* "dup_opt_peephole/input.sol":0:111  contract C {... */
+  mstore(0x40, 0x80)
+  jumpi(tag_1, iszero(callvalue))
+  tag_2
+  tag_3
+  jump	// in
+tag_2:
+tag_1:
+  jump(tag_4)
+    /* "#utility.yul":7:187   */
+tag_3:
+    /* "#utility.yul":55:132   */
+  0x4e487b7100000000000000000000000000000000000000000000000000000000
+    /* "#utility.yul":52:53   */
+  0x00
+    /* "#utility.yul":45:133   */
+  mstore
+    /* "#utility.yul":152:156   */
+  0x02
+    /* "#utility.yul":149:150   */
+  0x04
+    /* "#utility.yul":142:157   */
+  mstore
+    /* "#utility.yul":176:180   */
+  0x24
+    /* "#utility.yul":173:174   */
+  0x00
+    /* "#utility.yul":166:181   */
+  revert
+    /* "dup_opt_peephole/input.sol":0:111  contract C {... */
+tag_4:
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "dup_opt_peephole/input.sol":0:111  contract C {... */
+      mstore(0x40, 0x80)
+      jumpi(tag_3, iszero(callvalue))
+      tag_4
+      tag_5
+      jump	// in
+    tag_4:
+    tag_3:
+        /* "dup_opt_peephole/input.sol":74:75  0 */
+      0x00
+        /* "dup_opt_peephole/input.sol":61:76  calldataload(0) */
+      calldataload
+        /* "dup_opt_peephole/input.sol":100:101  x */
+      dup1
+        /* "dup_opt_peephole/input.sol":97:98  0 */
+      0x00
+        /* "dup_opt_peephole/input.sol":90:102  sstore(0, x) */
+      sstore
+        /* "dup_opt_peephole/input.sol":47:106  {... */
+      pop
+        /* "dup_opt_peephole/input.sol":0:111  contract C {... */
+      stop
+        /* "#utility.yul":7:187   */
+    tag_5:
+        /* "#utility.yul":55:132   */
+      0x4e487b7100000000000000000000000000000000000000000000000000000000
+        /* "#utility.yul":52:53   */
+      0x00
+        /* "#utility.yul":45:133   */
+      mstore
+        /* "#utility.yul":152:156   */
+      0x02
+        /* "#utility.yul":149:150   */
+      0x04
+        /* "#utility.yul":142:157   */
+      mstore
+        /* "#utility.yul":176:180   */
+      0x24
+        /* "#utility.yul":173:174   */
+      0x00
+        /* "#utility.yul":166:181   */
+      revert
+
+    auxdata: <AUXDATA REMOVED>
+}
